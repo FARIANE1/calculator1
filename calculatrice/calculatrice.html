@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+  <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        
+        <title>Calculatrice</title>
+        <meta name="author" content="Adrien TETAR" />
+        <meta name="description" content="Calculatrice en JavaScript" />
+        
+        <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+    </head>
+    <body>
+            <h1>Calculatrice</h1>
+            <br>
+                  <form name="form">
+                      <input name="texte" size="20" type="text" readonly  class="txtview"> 
+                 </form>
+                    <table>
+                            <tr>
+                                <td><input value="7" onclick="insert(7)" type="button" class="mainbutton"/></td>
+                                <td><input value="8" onclick="insert(8)" type="button" class="mainbutton"/></td>
+                                <td><input value="9" onclick="insert(9)" type="button" class="mainbutton"/></td>
+                                <td><input value="+" onclick="insert('+')" type="button" class="mainbutton"/></td>
+                            </tr>
+                            <tr>
+                                <td> <input value="4" onclick="insert(4)" type="button" class="mainbutton"/></td>
+                                <td> <input value="5" onclick="insert(5)" type="button" class="mainbutton"/></td>
+                                <td> <input value="6" onclick="insert(6)" type="button" class="mainbutton"/></td>
+                                <td> <input value="-" onclick="insert('-')" type="button" class="mainbutton"/></td>
+                            </tr>
+                            <tr>
+                                <td> <input value="1" onclick="insert(1)" type="button" class="mainbutton" /></td>
+                                <td> <input value="2" onclick="insert(2)" type="button" class="mainbutton" /></td>
+                                <td> <input value="3" onclick="insert(3)" type="button" class="mainbutton" /></td>
+                                <td><input value="*" onclick="insert('*')" type="button" class="mainbutton"/></td>
+                            </tr>
+                            <tr>
+                                <td><input value="0" onclick="insert(0)" type="button" class="mainbutton"/></td>
+                                <td><input value="." onclick="insert('.')" type="button" class="mainbutton"/></td>
+                                <td><input value="C" onclick="clean()" type="button" class="mainbutton"/></td>
+                                <td><input value="/" onclick="insert('/')" type="button" class="mainbutton"/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                <input value="=" onclick="equal()" type="button" class="mainbutton"/></td>
+                                <input value="<" onclick="back()" type="button" class="mainbutton"/></td>
+                            </tr>
+                    </table>
+            
+            <script>
+             function insert(num){
+            document.form.texte.value= document.form.texte.value+num ;
+           }
+
+    function equal(){
+        var exp = document.form.texte.value;
+        if(exp){
+        document.form.texte.value=eval( exp)
+    }
+}
+function clean() {
+    document.form.texte.value=""; 
+}
+function back() {
+
+   var exp=document.form.texte.value;
+   document.form.texte.value=exp.substring(0,exp.length-1);
+} 
+
+            </script>
+    </body>
+</html>
